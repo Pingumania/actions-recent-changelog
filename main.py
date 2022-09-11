@@ -2,6 +2,7 @@
 
 import sys
 import os.path
+import re
 
 def main(full_changelog, output):
 	if not os.path.isfile(full_changelog):
@@ -9,13 +10,14 @@ def main(full_changelog, output):
 	with open(full_changelog, 'r') as f, open(output, 'w') as out:
 		matching = False
 		for line in f:
-			if line.startswith('--') and not line.startswith('###'):
+			if re.search('\|\ \d\.\d\.\d$', line):
 				if matching:
 					print("Wrote changelog to", output)
 					return
 				matching = True
 			if matching:
-				out.write(line)
+				if not line.isspace():
+					out.write(line)
 	sys.exit("Couldn't write changelog")
 
 if __name__ == '__main__':
