@@ -8,9 +8,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: kemayo/actions-recent-changelog@main
+    - uses: pngmn/actions-recent-changelog@main
       with:
         input: test/changelog.md
-        output: test/recent.md
+        output: test/RECENT_CHANGES.md
     - name: Output recent changes
-      run: cat test/recent.md
+      run: cat test/RECENT_CHANGES.md

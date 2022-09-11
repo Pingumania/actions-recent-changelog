@@ -1,12 +1,11 @@
-# Changelog
-This is a sample changelog for testing.
+Addon | 1.1.1
+-------------
+- Fix
 
-## [Unreleased]
-- An unclassified change.
+Addon | 1.1.0
+-------------
+- Feature added
 
-## [1.0.0] - 2017-06-20
-### Added
-- Nothing.
-
-### Removed
-- Everything.
+Addon | 1.0.0
+-------------
+- First release
