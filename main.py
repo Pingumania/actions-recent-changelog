@@ -9,7 +9,8 @@ def main(full_changelog, output):
 		sys.exit("Input file doesn't exist")
 	with open(full_changelog, 'r') as f, open(output, 'w') as out:
 		matching = False
-		for line in f:
+		lines = f.readlines()
+		for line in lines:
 			if re.search('\|\ \d\.\d\.\d$', line):
 				if matching:
 					print("Wrote changelog to", output)
@@ -18,6 +19,9 @@ def main(full_changelog, output):
 			if matching:
 				if not line.isspace():
 					out.write(line)
+				if line is lines[-1]:
+					print("Wrote changelog to", output)
+					return
 	sys.exit("Couldn't write changelog")
 
 if __name__ == '__main__':
