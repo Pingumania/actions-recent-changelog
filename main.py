@@ -9,7 +9,7 @@ def main(full_changelog, output):
 	with open(full_changelog, 'r') as f, open(output, 'w') as out:
 		matching = False
 		for line in f:
-			if line.startswith('##') and not line.startswith('###'):
+			if line.startswith('--') and not line.startswith('###'):
 				if matching:
 					print("Wrote changelog to", output)
 					return
