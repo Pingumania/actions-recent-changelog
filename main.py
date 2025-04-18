@@ -11,7 +11,7 @@ def main(full_changelog, output):
 		matching = False
 		lines = f.readlines()
 		for line in lines:
-			if re.search('^.*\ \|\ ..*$', line):
+			if re.search('^.* \| .*$', line):
 				if matching:
 					print("Wrote changelog to", output)
 					return
