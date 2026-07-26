@@ -12,5 +12,11 @@ jobs:
       with:
         input: test/changelog-multi.md
         output: test/RECENT_CHANGES.md
-    - name: Output recent changes
-      run: cat test/RECENT_CHANGES.md
+    - name: Verify multi-entry changelog
+      run: diff test/expected-multi.md test/RECENT_CHANGES.md
+    - uses: Pingumania/actions-recent-changelog@main
+      with:
+        input: test/changelog-single.md
+        output: test/RECENT_CHANGES_SINGLE.md
+    - name: Verify single-entry changelog
+      run: diff test/expected-single.md test/RECENT_CHANGES_SINGLE.md
