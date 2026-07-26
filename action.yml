@@ -12,8 +12,12 @@ inputs:
     description: 'Filename for the recent changes'
     required: false
     default: 'RECENT_CHANGES.md'
+  separator:
+    description: 'Line marking the end of the most recent entry'
+    required: false
+    default: '*****'
 runs:
   using: composite
   steps:
-    - run: python $GITHUB_ACTION_PATH/main.py ${{ inputs.input }} ${{ inputs.output }}
+    - run: python $GITHUB_ACTION_PATH/main.py ${{ inputs.input }} ${{ inputs.output }} "${{ inputs.separator }}"
       shell: bash
