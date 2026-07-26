@@ -20,3 +20,11 @@ jobs:
         output: test/RECENT_CHANGES_SINGLE.md
     - name: Verify single-entry changelog
       run: diff test/expected-single.md test/RECENT_CHANGES_SINGLE.md
+    - name: Copy fixture for in-place test
+      run: cp test/changelog-multi.md test/RECENT_CHANGES_INPLACE.md
+    - uses: Pingumania/actions-recent-changelog@main
+      with:
+        input: test/RECENT_CHANGES_INPLACE.md
+        output: test/RECENT_CHANGES_INPLACE.md
+    - name: Verify in-place changelog
+      run: diff test/expected-multi.md test/RECENT_CHANGES_INPLACE.md
