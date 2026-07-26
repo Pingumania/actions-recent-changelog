@@ -2,7 +2,7 @@
 A GitHub Action for generating a "recent changes" file from a larger manually-curated changelog
 
 ## Behavior
-The action expects to be provided with a markdown file. It will extract the first `Addon | XX.` and all lines between it and the next `Addon | XX.` or the end of the file. These lines will be written as-is to the provided output file.
+The action expects to be provided with a markdown file. It will extract all lines from the start of the file up to (but not including) the first separator line (`*****` by default), or the end of the file if no separator is found. Blank lines are dropped; the rest are written to the provided output file.
 
 ## Usage
 ```YAML
@@ -10,4 +10,5 @@ The action expects to be provided with a markdown file. It will extract the firs
       with:
         input: CHANGELOG.md
         output: RECENT_CHANGES.md
+        separator: '*****'
 ```
