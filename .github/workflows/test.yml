@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: pngmn/actions-recent-changelog@main
+    - uses: actions/checkout@v4
+    - uses: Pingumania/actions-recent-changelog@main
       with:
-        input: test/changelog.md
+        input: test/changelog-multi.md
         output: test/RECENT_CHANGES.md
     - name: Output recent changes
       run: cat test/RECENT_CHANGES.md
