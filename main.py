@@ -6,14 +6,16 @@ import os.path
 def main(full_changelog, output, separator='*****'):
 	if not os.path.isfile(full_changelog):
 		sys.exit("Input file doesn't exist")
-	with open(full_changelog, 'r') as f, open(output, 'w') as out:
+	with open(full_changelog, 'r') as f:
 		lines = f.readlines()
-		for line in lines:
-			if line.strip() == separator:
-				print("Wrote changelog to", output)
-				return
-			if not line.isspace():
-				out.write(line)
+	kept = []
+	for line in lines:
+		if line.strip() == separator:
+			break
+		if not line.isspace():
+			kept.append(line)
+	with open(output, 'w') as out:
+		out.writelines(kept)
 	print("Wrote changelog to", output)
 
 if __name__ == '__main__':
