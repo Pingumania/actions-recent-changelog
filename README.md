@@ -6,7 +6,7 @@ The action expects to be provided with a markdown file. It will extract all line
 
 ## Usage
 ```YAML
-    - uses: Pingumania/actions-recent-changelog@main
+    - uses: Pingumania/actions-recent-changelog@v2
       with:
         input: CHANGELOG.md
         output: RECENT_CHANGES.md
